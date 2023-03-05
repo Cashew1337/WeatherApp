@@ -16,14 +16,21 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div class="input-group mb-3 col-3">
-        <input type="search" placeholder="City" aria-label="City" aria-describedby="button-addon2" name="city">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-
+    <div class="container">
+        <div class="row">
+            <div class="mb-3 col-12 col-md-6 col-sm-3 min-vh-100 max-vw-25">
+                <h2>Search for a City:</h2>
+                <input type="search" placeholder="City" aria-label="City" aria-describedby="button-addon2" name="city">
+                <button class="btn btn-large btn-block btn-outline-secondary" type="button"
+                    id="button-addon2">Search</button>
+            </div>
+            <div class="col" id="resultContent"></div>
+        </div>
     </div>
 
-    <div class="container"></div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js"
+        integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="./assets/JS/java.js"></script>

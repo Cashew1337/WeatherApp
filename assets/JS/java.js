@@ -1,5 +1,6 @@
 var apiKey = '81b611a44f10edec7e52dccbf27cc9d6';
 var searchBtn = $('#button-addon2');
+var resultContentEl = $('#resultContent')
 
 
 $(function WeatherChecker() {
@@ -34,11 +35,32 @@ $(function WeatherChecker() {
                         })
                             .then(function (forecast) {
                                 console.log(forecast)
-                                // printResults(forecast)
+                                printResults(forecast)
                             })
                     }
                 }
             })
     });
+
+    function printResults(resultObject) {
+        var currentDate = dayjs().format('MMM/D/YYYY')
+        console.log(currentDate)
+
+        var displayCard = document.createElement('div');
+        displayCard.classList.add('card', 'mb-3', 'p-3');
+
+        var displayBody = document.createElement('div');
+        displayBody.classList.add('card-body');
+        displayCard.append(displayBody);
+
+        var oneDayHeaderEl = document.createElement('h2');
+        oneDayHeaderEl.textContent = resultObject.name
+
+        oneDayHeaderEl.textContent += ' (' + currentDate + ') '
+        oneDayHeaderEl.textContent += resultObject.icon
+        displayBody.append(oneDayHeaderEl)
+
+        resultContentEl.append(displayCard)
+    }
 
 });
