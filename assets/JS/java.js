@@ -7,8 +7,8 @@ $(function WeatherChecker() {
 
     searchBtn.click(function (e) {
         e.preventDefault;
-        // resultContentEl
-
+        resultContentEl.empty();
+        
         var city = $('input[type=search]').val();
         var geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey;
 
@@ -66,7 +66,7 @@ $(function WeatherChecker() {
                         var lon = data[i].lon;
                         var lonRound = Math.round(lon * 100) / 100;
                         console.log(lonRound);
-                        var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latRound + '&lon=' + lonRound + '&units=imperial&cnt=5&appid=' + apiKey;
+                        var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latRound + '&lon=' + lonRound + '&units=imperial&appid=' + apiKey;
                         console.log(apiUrl);
 
                         fetch(apiUrl).then(function (weather) {
@@ -144,7 +144,6 @@ $(function WeatherChecker() {
             weatherData.innerHTML += 'Wind: ' + weatherInfo.wind.speed + ' MPH' + '</br>';
             weatherData.innerHTML += 'Humidity: ' + weatherInfo.main.humidity + ' %'
             
-
             weatherCard.append(weatherData);
             displayBody.append(weatherCard);
         }
