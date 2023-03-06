@@ -55,17 +55,19 @@ $(function WeatherChecker() {
         displayCard.append(displayBody);
 
         var oneDayHeaderEl = document.createElement('h2');
-        var weatherIcon = 'https://openweathermap.org/img/wn/' + resultObject.weather[0].icon + '@2x.png'
+        var weatherIcon = document.createElement('img');
+        weatherIcon.src = 'https://openweathermap.org/img/wn/' + resultObject.weather[0].icon + '@2x.png'
+        $('img').attr('alt', 'weather icon')
         oneDayHeaderEl.textContent = resultObject.name
         oneDayHeaderEl.textContent += ' (' + currentDate + ') ';
-        oneDayHeaderEl.textContent += weatherIcon;
-        displayCard.append(oneDayHeaderEl);
+        oneDayHeaderEl.append(weatherIcon);
+        displayBody.append(oneDayHeaderEl);
 
         var weatherData = document.createElement('p');
         weatherData.innerHTML = 'Temp: ' + resultObject.main.temp + ' \u00b0F' + '</br>';
         weatherData.innerHTML += 'Wind: ' + resultObject.wind.speed + ' MPH' + '</br>';
         weatherData.innerHTML += 'Humidity: ' + resultObject.main.humidity + ' %'
-        displayCard.append(weatherData);
+        displayBody.append(weatherData);
 
         resultContentEl.append(displayCard)
     }
