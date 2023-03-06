@@ -128,22 +128,27 @@ $(function WeatherChecker() {
             var fiveDate = dayjs(unixDate * 1000).format('MMM/D/YYYY');
             console.log(fiveDate);
 
+            var weatherCard = document.createElement('div')
+            weatherCard.classList.add('col')
+
             var fiveDayHeaderEl = document.createElement('h3');
             var weatherIcon = document.createElement('img');
             weatherIcon.src = 'https://openweathermap.org/img/wn/' + weatherInfo.weather[0].icon + '@2x.png'
             $('img').attr('alt', 'weather icon')
             fiveDayHeaderEl.textContent += ' (' + fiveDate + ') ';
             fiveDayHeaderEl.append(weatherIcon);
-            displayBody.append(fiveDayHeaderEl);
+            weatherCard.append(fiveDayHeaderEl);
 
             var weatherData = document.createElement('p');
             weatherData.innerHTML = 'Temp: ' + weatherInfo.main.temp + ' \u00b0F' + '</br>';
             weatherData.innerHTML += 'Wind: ' + weatherInfo.wind.speed + ' MPH' + '</br>';
             weatherData.innerHTML += 'Humidity: ' + weatherInfo.main.humidity + ' %'
-            displayBody.append(weatherData);
+            
 
-            resultContentEl.append(displayCard)
+            weatherCard.append(weatherData);
+            displayBody.append(weatherCard);
         }
+        resultContentEl.append(displayCard)
     }
 
 });
