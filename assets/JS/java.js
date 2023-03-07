@@ -8,7 +8,7 @@ $(function WeatherChecker() {
     searchBtn.click(function (e) {
         e.preventDefault;
         resultContentEl.empty();
-        
+
         var city = $('input[type=search]').val();
         var geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey;
 
@@ -35,8 +35,8 @@ $(function WeatherChecker() {
                             return weather.json()
                         })
                             .then(function (forecast) {
-                                console.log(forecast)
-                                printResults(forecast)
+                                console.log(forecast);
+                                printResults(forecast);
                                 getFiveDay();
                             });
                     }
@@ -121,10 +121,16 @@ $(function WeatherChecker() {
         displayBody.classList.add('card-body', 'row');
         displayCard.append(displayBody);
 
-        for (let i = 0; i < resultObject.list.length; i++) {
+        for (let i = 0; i < resultObject.list.length; i+=8) {
             var weatherInfo = resultObject.list[i];
             console.log(weatherInfo)
             var unixDate = weatherInfo.dt;
+            var unixFilter = dayjs(unixDate * 1000).format('HH:MM');
+            console.log(unixFilter)
+            // var filteredDates = unixFilter.filter(function (a) {
+            //     var days = a.dt
+
+            // })
             var fiveDate = dayjs(unixDate * 1000).format('MMM/D/YYYY');
             console.log(fiveDate);
 
