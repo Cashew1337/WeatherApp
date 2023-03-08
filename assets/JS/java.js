@@ -125,12 +125,7 @@ $(function WeatherChecker() {
             var weatherInfo = resultObject.list[i];
             console.log(weatherInfo)
             var unixDate = weatherInfo.dt;
-            var unixFilter = dayjs(unixDate * 1000).format('HH:MM');
-            console.log(unixFilter)
-            // var filteredDates = unixFilter.filter(function (a) {
-            //     var days = a.dt
 
-            // })
             var fiveDate = dayjs(unixDate * 1000).format('MMM/D/YYYY');
             console.log(fiveDate);
 
