@@ -1,3 +1,7 @@
+* {
+    background: linear-gradient(rgb(222, 223, 214), rgb(195, 191, 198), rgb(168, 161, 182), rgb(141, 131, 167), rgb(114, 102, 151));
+}
+
 header {
     display: flex;
     flex-flow: row;
